@@ -77,8 +77,8 @@ const handleSubmit=async(e,employee)=>{
       
 }
   return (
-    <div className=" min-h-screen bg-gray-100 p-4 md:p-8">
-        <EmployeeRegister name={name} setName={setName} email={email} password={password} setEmail={setEmail} setPassword={setPassword} handleRegister={handleRegister} />
+    <div className=" min-h-full bg-gray-100 p-4 md:p-8">
+        {/* <EmployeeRegister name={name} setName={setName} email={email} password={password} setEmail={setEmail} setPassword={setPassword} handleRegister={handleRegister} /> */}
         <EmployeeList list={employeeList} handleUpdate={handleUpdate} handleDelete={handleDelete} 
         selectedEmployee={selectedEmployee} setSelectedEmployee={setSelectedEmployee} taskEmployee={taskEmployee} setTaskEmployee={setTaskEmployee} 
         loading={loading} handleSave={handleSave}/>
