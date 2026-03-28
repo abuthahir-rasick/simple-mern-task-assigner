@@ -242,7 +242,7 @@ const ManagerDashboard = () => {
                       onConfirm: () => dispatch(managerDecision({ id: t._id, action: "ok" })), // Update this to actual delete if needed
                     });
                   }}
-                  className="px-3 py-2 bg-red-600 text-white rounded-md text-xs sm:text-sm font-bold hover:bg-red-700 transition"
+                  className="cursor-pointer px-3 py-2 bg-red-600 text-white rounded-md text-xs sm:text-sm font-bold hover:bg-red-700 transition"
                 >
                   Delete
                 </button>
