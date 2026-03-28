@@ -17,7 +17,9 @@ app.use(express.json());
 app.use('/auth',authRoutes);
 app.use('/employee',employeeRoutes);
 app.use('/manager',managerRoutes);
-
+app.get("/", (req, res) => {
+  res.send("Task Assigner API Running...");
+});
 const port=process.env.PORT;
 app.listen(port,()=>{
     console.log(`Server is Listening on ${port}`)
