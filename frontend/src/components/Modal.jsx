@@ -4,54 +4,58 @@ const Modal = ({ show, onClose, title, message, isError = false }) => {
   if (!show) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-0">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       
-     
       <div 
-        className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm transition-opacity" 
+        className="fixed inset-0 bg-slate-900/40 backdrop-blur-md transition-opacity duration-300" 
         onClick={onClose}
         aria-hidden="true"
       ></div>
 
-      
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-sm md:max-w-md overflow-hidden transform transition-all border border-gray-100">
+      <div className="relative bg-white rounded-[2rem] shadow-2xl w-full max-w-[340px] sm:max-w-md overflow-hidden transform transition-all duration-300 animate-in fade-in zoom-in slide-in-from-bottom-4 border border-slate-100">
         
-        <div className="p-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className={`text-xl font-semibold tracking-tight ${isError ? 'text-red-600' : 'text-gray-900'}`}>
-              {title}
-            </h3>
-            <button
-              onClick={onClose}
-              className="text-gray-400 hover:text-gray-700 hover:bg-gray-100 p-1.5 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500"
-              aria-label="Close"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
-              </svg>
-            </button>
+        <div className="p-6 sm:p-10">
+          
+          <div className="flex justify-center mb-6">
+            <div className={`p-4 rounded-3xl ${isError ? 'bg-rose-50' : 'bg-emerald-50'}`}>
+              {isError ? (
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+              ) : (
+                <svg className="w-8 h-8 sm:w-10 sm:h-10 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              )}
+            </div>
           </div>
 
-          <div className="mt-2 mb-8">
-            <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+          <div className="text-center space-y-2">
+            <h3 className={`text-xl sm:text-2xl font-black tracking-tight ${isError ? 'text-rose-600' : 'text-slate-800'}`}>
+              {title}
+            </h3>
+            <p className="text-slate-500 leading-relaxed text-xs sm:text-sm font-medium px-2 sm:px-4">
               {message}
             </p>
           </div>
 
-          <div className="flex justify-end gap-3">
+          <div className="mt-8">
             <button
               onClick={onClose}
-              className={`cursor-pointer w-full sm:w-auto px-5 py-2.5 text-white text-sm font-medium rounded-xl shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-offset-2 active:scale-95 ${
+              className={`cursor-pointer w-full py-3.5 sm:py-4 px-6 text-sm sm:text-base font-bold text-white rounded-2xl shadow-xl transition-all duration-200 active:scale-[0.97] outline-none focus:ring-4 ${
                 isError 
-                  ? 'bg-red-600 hover:bg-red-700 shadow-red-200 focus:ring-red-500' 
-                  : 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-200 focus:ring-indigo-500'
+                  ? 'bg-rose-500 hover:bg-rose-600 shadow-rose-200 focus:ring-rose-100' 
+                  : 'bg-indigo-600 hover:bg-indigo-700 shadow-indigo-200 focus:ring-indigo-100'
               }`}
             >
-              {isError ? 'Try Again' : 'Got it'}
+              {isError ? 'Try Again' : 'Awesome'}
             </button>
           </div>
+          
+          <p className="hidden sm:block text-center text-[10px] text-slate-300 mt-4 uppercase tracking-widest font-bold">
+            Press anywhere to close
+          </p>
         </div>
-
       </div>
     </div>
   );
